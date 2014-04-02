@@ -1,0 +1,10 @@
+<button {{action "edit"}} class="btn btn-primary">Edit</button>
+<h2>{{name}}</h2>
+<div>Gender: {{gender}}</div>
+<div>Bio: {{bio}}</div>
+<div>Born: {{born}}</div>
+Movies:
+{{#each movie in appearances}} 
+<li>{{link-to movie.name "movie" movie}}</li>
+{{/each}}
+{{outlet}}

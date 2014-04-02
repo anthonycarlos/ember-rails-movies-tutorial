@@ -1,0 +1,17 @@
+In the case of a url like #/movies/101, how are the outlets rendered?
+
+First, we always start with the application template.
+
+When {{outlet}} is called in a template, the current route is what
+determines which template is going to be used for rendering. The route
+can explicitly define a template using the renderTemplate hook.
+
+App.PostsRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('favoritePost'); # => Use the favorite_post
+  }
+});
+
+If the route does not specify a renderTemplate() hook, then Ember will
+use the name of the route. If the route is called PostsRoute, then Ember
+will look for a template called Posts.

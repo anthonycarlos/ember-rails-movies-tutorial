@@ -2,10 +2,11 @@
 
 EmberApp.Router.map ()->
   @route 'emdb'
-  @resource 'movies', ->
+  @resource 'movies', path: 'movies', ->
     @route 'new'
     @resource 'movie', path: ':movie_id', ->
       @resource 'cast', ->
         @route 'show', path: ':actor_id'
-  @resource 'actors'
+  @resource 'actors', ->
+    @resource 'actor', path: ':actor_id'
   @resource 'cards'
